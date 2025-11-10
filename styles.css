@@ -1,0 +1,485 @@
+/* ---------- GLOBAL BASE STYLES ---------- */
+body {
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Comfortaa, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Transparent sections */
+.leftDiv,
+.rightDiv {
+  background: transparent !important;
+}
+
+/* Glass cards (shared) */
+.leftChild,
+.extraMetric,
+.rowTwoDiv,
+.todayTemp {
+  background: rgba(240, 240, 240, 0.25);
+  backdrop-filter: blur(18px) brightness(1.1);
+  -webkit-backdrop-filter: blur(18px) brightness(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Container blur layer */
+.mainContentParentDiv {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Search bar */
+.searchBar {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputfield {
+  outline: none;
+}
+
+.seachbarParentDiv {
+  width: 50%;
+  position: relative;
+}
+
+.inputfield {
+  width: 100%;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.seachIcon {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+}
+
+.mainContentParentDiv {
+  height: 90vh;
+  flex-direction: row;
+}
+
+/* Left section */
+.leftDiv {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftChild {
+  width: 85%;
+  height: 40vh;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.currentTemperatureDiv h6 {
+  font-size: larger;
+}
+
+#cityName {
+  font-size: xx-large;
+}
+
+#cityTemp {
+  font-size: x-large;
+}
+
+/* Right section */
+.rightDiv {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#comingFiveDaysTitle {
+  font-size: x-large;
+}
+
+.rightRow {
+  height: 27vh;
+  width: 100%;
+}
+
+/* Metrics row */
+.extraMetric {
+  padding: 5% 2%;
+  width: fit-content;
+  border-radius: 15px;
+  align-items: center;
+}
+
+/* AQI layout */
+.rowTwoDiv {
+  width: 45%;
+  height: 85%;
+  border-radius: 15px;
+}
+
+.aqi-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.aqi-icon {
+  flex-shrink: 0;
+}
+
+.aqi-metrics {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.aqi-metric {
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 80px;
+}
+
+.aqi-label {
+  font-size: 0.85rem !important;
+  white-space: nowrap;
+}
+
+.aqi-value {
+  font-size: 0.9rem !important;
+}
+
+.aqi-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.aqi-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  min-height: 1.4rem;
+}
+
+.aqi-value:empty::before {
+  content: "--";
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Today forecast cards */
+.todayTemp {
+  width: fit-content;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ---------- TABLET OPTIMIZATION ---------- */
+@media (max-width: 992px) {
+  .aqi-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aqi-metrics {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* ---------- MOBILE OPTIMIZATION (PERFECT FIX) ---------- */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  /* Stack main sections */
+  .mainContentParentDiv {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 25px !important;
+    height: auto !important;
+  }
+
+  .leftDiv,
+  .rightDiv {
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 25px !important;
+  }
+
+  .currentTemperatureDiv,
+  .nextFiveDays {
+    width: 95% !important;
+  }
+
+  /* Metrics row (pressure/humidity etc.) */
+  .rightRow.rowOne {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+  .extraMetric {
+    width: 45% !important;
+    min-width: 140px !important;
+  }
+
+  /* AQI + Sunrise stacked vertically */
+  .rightRow.rowTwo {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 95% !important;
+    gap: 20px !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* AQI section */
+  .AQI {
+    width: 100% !important;
+    text-align: center !important;
+    border-radius: 12px !important;
+    padding: 6px !important;
+    margin-bottom: 10px !important;
+    margin-top: 40px;
+  }
+
+  .aqi-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .aqi-metrics {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+  flex-wrap: nowrap !important; /* ✅ prevent wrapping */
+  gap: 6px;
+  width: 100%;
+  margin-top: -15px;
+}
+
+.aqi-metric {
+  flex: 1 1 0 !important;  /* ✅ equal width for all */
+  text-align: center;
+  min-width: 0 !important;
+}
+
+.sunRise {
+  width: 100% !important;          /* Full width inside the parent */
+  min-height: 350px !important;    /* Increase height (adjust value as needed) */
+  padding: 5px !important;        /* More inner spacing */
+  border-radius: 18px !important;  /* Slightly larger corners */
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(18px) brightness(1.1) !important;
+  -webkit-backdrop-filter: blur(18px) brightness(1.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 30px !important;
+}
+
+  .sunRise h5 {
+    margin-bottom: -10px !important;
+    font-size: 1.3rem !important;
+    margin-top: 0px !important;
+  }
+
+  /* Arrange Sunrise & Sunset horizontally */
+  .sunRise .d-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+
+  .sunriseDiv,
+  .sunsetDiv {
+    width: 46% !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    min-height: 100px !important;
+  }
+
+  .sunriseDiv img,
+  .sunsetDiv img {
+    width: 45px !important;
+  }
+
+  .sunriseDiv h6,
+  .sunsetDiv h6,
+  .sunriseDiv h5,
+  .sunsetDiv h5 {
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+  }
+
+  /* Today section */
+  .rightRow.rowThree {
+    width: 95% !important;
+    text-align: center !important;
+    align-items: center !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    padding: 18px 15px !important;
+    gap: 15px !important;
+    margin-top: 380px !important;
+    position: relative !important;
+    z-index: 0 !important;
+    min-height: 500px;
+
+  }
+
+  .rightRow.rowThree h5 {
+    font-size: 1.1rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .todayTempParentDiv {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .todayTemp {
+    width: 45% !important;
+    min-width: 140px !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+  }
+
+  .todayTempParentDiv {
+  display: flex !important;
+  flex-wrap: wrap !important;              /* Allow wrapping to next line */
+  justify-content: center !important;
+  gap: 15px !important;                    /* Spacing between boxes */
+}
+
+/* Each temperature card */
+.todayTemp {
+  flex: 1 1 calc(50% - 20px) !important;   /* 2 per row with small spacing */
+  max-width: calc(50% - 20px) !important;
+  min-width: 140px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* Adjust icons inside */
+.todayTemp img {
+  width: 35px !important;
+  height: auto !important;
+}
+
+  /* Text */
+  h5 {
+    font-size: 1rem !important;
+  }
+
+  h6 {
+    font-size: 0.9rem !important;
+  }
+
+  /* Search bar scaling */
+  .searchBar {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .seachbarParentDiv {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inputfield {
+    width: 85%;
+  }
+
+  .seachIcon {
+    width: 40px;
+    right: 60px;
+  }
+}
+
+/* ---------- EXTRA SMALL PHONES ---------- */
+@media screen and (max-width: 480px) {
+  .sunRise .d-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .sunriseDiv,
+  .sunsetDiv {
+    width: 95% !important;
+    min-height: 90px !important;
+  }
+
+  .todayTemp {
+    width: 80% !important;
+  }
+
+  .aqi-metrics {
+    gap: 6px !important;
+  }
+
+  .aqi-label {
+    font-size: 0.75rem !important;
+  }
+
+  .aqi-value {
+    font-size: 0.8rem !important;
+  }
+}
