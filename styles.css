@@ -1,0 +1,263 @@
+body {
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Comfortaa, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Unified Background Fix */
+.leftDiv,
+.rightDiv {
+    background: transparent !important;
+}
+
+/* Make all glass cards consistent */
+.leftChild,
+.extraMetric,
+.rowTwoDiv,
+.todayTemp {
+    background: rgba(240, 240, 240, 0.25);
+    backdrop-filter: blur(18px) brightness(1.1);
+    -webkit-backdrop-filter: blur(18px) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional subtle layer behind all content */
+.mainContentParentDiv {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.searchBar {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputfield {
+    outline: none;
+}
+
+.seachbarParentDiv {
+    width: 50%;
+    height: fit-content;
+    position: relative;
+}
+
+.inputfield {
+    width: 100%;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.seachIcon {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+.seachIcon:hover {
+    cursor: pointer;
+}
+
+.mainContentParentDiv {
+    height: 90vh;
+    flex-direction: row;
+}
+
+.leftDiv {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.leftChild {
+    width: 85%;
+    height: 40vh;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.currentTemperatureDiv h6 {
+    font-size: larger;
+}
+
+#cityName {
+    font-size: xx-large;
+}
+
+#cityTemp {
+    font-size: x-large;
+}
+
+.rightDiv {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#comingFiveDaysTitle {
+    font-size: x-large;
+}
+
+.rightRow {
+    height: 27vh;
+    width: 100%;
+}
+
+.extraMetric {
+    padding: 5% 2%;
+    width: fit-content;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.rowTwoDiv {
+    width: 45%;
+    height: 85%;
+    border-radius: 15px;
+}
+
+.todayTemp {
+    width: fit-content;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ---------- AQI Section Styling ---------- */
+/* ---------- AQI Section Styling (Fixed for Responsiveness) ---------- */
+.aqi-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* allow items to wrap when space reduces */
+  gap: 10px;
+}
+
+.aqi-icon {
+  flex-shrink: 0; /* prevents the icon from shrinking */
+}
+
+.aqi-metrics {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  flex-wrap: wrap; /* allow metrics to move to next line if needed */
+  gap: 15px;
+}
+
+.aqi-metric {
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 80px; /* allow flexible resizing */
+}
+
+.aqi-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.aqi-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  min-height: 1.4rem;
+  line-height: 1.4rem;
+}
+
+.aqi-value:empty::before {
+  content: "--";
+  color: rgba(255,255,255,0.5);
+}
+
+/* ---------- Small Screen Optimization ---------- */
+@media (max-width: 992px) {
+  .aqi-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .aqi-metrics {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:767px) {
+    .leftDiv {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .rightDiv {
+        width: 100%;
+    }
+    .mainContentParentDiv  {
+        height: 90vh;
+        flex-direction: row;
+    }
+    .searchBar {
+        width: 100%;
+    }
+    .seachbarParentDiv {
+        width: 85%;
+        height: fit-content;
+        position: relative;
+    }
+    .rowOne {
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 85%;
+        margin: auto;
+    }
+    .rowTwo {
+        flex-direction: column;
+        backdrop-filter: blur(15px);
+    }
+
+    .rowTwo {
+        gap: 10px;
+        height: 30vh;
+    }
+
+    .rowTwoDiv {
+        width: 85%;
+        height: 85%;
+        border-radius: 15px;
+    }
+    .rowThree {
+        width: 85%;
+        margin: auto;
+    }
+
+    .todayTempParentDiv {
+        width: 100%;
+        flex-wrap: wrap;
+        margin: auto;
+        gap: 15px;
+    }
+}
